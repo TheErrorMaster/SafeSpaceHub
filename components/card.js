@@ -49,7 +49,7 @@ export const Card = (props) => {
               borderRadius: 20,
             }}
           >
-            <PanGestureHandler onGestureEvent={handleGesture}>
+            {/* <PanGestureHandler onGestureEvent={handleGesture}> */}
               <View style={{ flexDirection: 'column', height: 50, width: '100%'}}>
                 <View style={{ width: '100%', alignItems: 'center'}}>
                   <View style={{ width: 100, height: 5, backgroundColor: 'gray', borderRadius: 10, margin: 5}}></View>
@@ -65,7 +65,7 @@ export const Card = (props) => {
                   </TouchableOpacity>
               </View>
               </View>
-            </PanGestureHandler>
+            {/* </PanGestureHandler> */}
 
             <View style={{ 
                 alignSelf: 'center',
