@@ -10,7 +10,7 @@ import {
   import { useState } from "react";
   // import { collection, getDocs, doc, query, where } from 'firebase/firestore';
   // import {db} from '../firebase/firebaseConfig';
-  import {login} from '../firebase/user';
+  // import {login} from '../firebase/user';
 
 
 export const Login = (props) => {
@@ -22,7 +22,8 @@ export const Login = (props) => {
     const btn = async () => {
       try {
         setLoading(true);
-        const loginUser = await login(user, password);
+        // const loginUser = await login(user, password);
+        const loginUser = true;
         // setLoading(false);
         // loginUser ? close() : Alert.alert('wrong login infor');
         close();

@@ -3,3 +3,6 @@ create the app
 
 start app 
 `npx expo start`
+
+if you clone install the packages
+`npm install`

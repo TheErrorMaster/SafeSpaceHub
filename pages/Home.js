@@ -7,10 +7,10 @@ import {
 } from "react-native";
 import MapView, { Marker } from "react-native-maps";
 import React, { useState, useEffect } from "react";
-import { getLocation, dummyData } from "../testApp/.expo/utils/index";
-import { Card } from '../testApp/.expo/components/card/index';
-import { Login } from '../testApp/.expo/components/login/index';
-import { Post } from '../testApp/.expo/components/post/index';
+import { getLocation, dummyData } from '../utils';
+import { Card } from '../components/card';
+import { Login } from '../components/login';
+import { Post } from '../components/post';
 
 export const HomePage = () => {
   const [long, setLong] = useState(0);

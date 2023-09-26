@@ -8,8 +8,8 @@ import {
     TextInput,
   } from "react-native";
 import { useState } from "react";
-import DateTimePicker from '@react-native-community/datetimepicker';
-import { Btn } from '../btn/index'
+// import DateTimePicker from '@react-native-community/datetimepicker';
+import { Btn } from './btn'
 
 
 export const Post = (props) => {
@@ -57,7 +57,7 @@ export const Post = (props) => {
                 value={event}
             />
             <Text>Date & Time: </Text>
-            <DateTimePicker minimumDate={new Date()} value={date} mode={"datetime"} style={{ paddingBottom: 20}} onChange={(a,b) => setDate(b)}/>
+            {/* <DateTimePicker minimumDate={new Date()} value={date} mode={"datetime"} style={{ paddingBottom: 20}} onChange={(a,b) => setDate(b)}/> */}
 
             <Btn onPress={endModal} style={{width: '50%', height: 40, justifyContent: 'center'}} text="Create Event" textColor="white" bgColor="blue" />
 
