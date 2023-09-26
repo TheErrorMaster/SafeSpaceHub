@@ -34,9 +34,6 @@ export const HomePage = () => {
 
   return (
     <SafeAreaView style={styles.container}>
-      <View style={{ height: 50, justifyContent: "center" }}>
-        <Text>Doggy Mingle</Text>
-      </View>
       {!isLoading && (
         <View>
           <Text>Loading...</Text>
