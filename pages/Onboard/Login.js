@@ -14,8 +14,9 @@ import {
   // import {db} from '../firebase/firebaseConfig';
   // import {login} from '../firebase/user';
   
-  export const CreatePassword = ({route, navigation}) => {
-    const [confirmPassword, setConfirmPassword] = useState("");
+  export const Login = (props) => {
+    const { pop, close } = props || {};
+    const [user, setUser] = useState("");
     const [password, setPassword] = useState("");
     const [loading, setLoading] = useState(false);
   
@@ -26,13 +27,14 @@ import {
         const loginUser = true;
         // setLoading(false);
         // loginUser ? close() : Alert.alert('wrong login infor');
-        navigation.navigate("UserSelect")
+        close();
       } catch (e) {
         console.log("e", e);
       }
     };
   
     return (
+      <>
           <KeyboardAvoidingView
             style={{ flex: 1 }}
             behavior={Platform.OS === "ios" ? "padding" : "height"}
@@ -59,11 +61,11 @@ import {
                       color: "#FFF",
                       fontSize: 26,
                       width: "100%",
-                      marginBottom: 10,
+                      marginBottom: 20,
                       marginLeft: 40,
                     }}
                   >
-                    Create a Password
+                    Sign In
                   </Text>
                   <TextInput
                     style={{
@@ -75,43 +77,39 @@ import {
                       padding: 10,
                       color: "#FFF"
                     }}
-                    placeholderTextColor={"#8A8A8A"}
+                    placeholder="Email"
+                    onChangeText={setUser}
+                    value={user}
+                  />
+                  <TextInput
+                    style={{
+                      height: 40,
+                      width: "90%",
+                      margin: 12,
+                      borderWidth: 1,
+                      borderBottomColor: "gray",
+                      padding: 10,
+                      color: "#FFF"
+                    }}
                     placeholder="Password"
                     onChangeText={setPassword}
                     value={password}
                     secureTextEntry={true}
                   />
-                  <TextInput
-                    style={{
-                      height: 40,
-                      width: "90%",
-                      margin: 12,
-                      borderWidth: 1,
-                      borderBottomColor: "gray",
-                      padding: 10,
-                      color: "#FFF"
-                    }}
-                    placeholder="Confirm Password"
-                    placeholderTextColor={"#8A8A8A"}
-                    onChangeText={setConfirmPassword}
-                    value={confirmPassword}
-                    secureTextEntry={true}
-                  />
                   <Text
                     style={{
-                      color: "#8A8A8A",
-                      fontSize: 12,
+                      color: "#FFF",
+                      fontSize: 14,
                       marginTop: 10,
                       width: "90%",
-                      textAlign: "left",
+                      textAlign: "right",
                     }}
                   >
-                    We highly value your privacy and assure you that we will never engage in selling, giving away, or sending any form of unsolicited spam.
+                    Forgot Password?{" "}
                   </Text>
                 </View>
                 <View>
                   {!loading && (
-                    <>
                     <TouchableOpacity
                       onPress={btn}
                       style={{
@@ -127,9 +125,8 @@ import {
                         marginTop: 20,
                       }}
                     >
-                      <Text style={{ color: "white" }}>Next</Text>
+                      <Text style={{ color: "white" }}>Login</Text>
                     </TouchableOpacity>
-                   </>
                   )}
                   {loading && <Text>Loading</Text>}
                 </View>
@@ -137,6 +134,7 @@ import {
             </View>
             </Pressable>
           </KeyboardAvoidingView>
+      </>
     );
   };
   

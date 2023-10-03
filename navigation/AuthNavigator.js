@@ -1,6 +1,7 @@
 import { createStackNavigator } from "@react-navigation/stack";
 import { SignUp } from "../pages/Onboard/SignUp";
 import { CreatePassword } from "../pages/Onboard/CreatePassword";
+import { UserSelect } from "../pages/Onboard/UserSelect";
 
 export const AuthNavigator = () => {
   const Stack = createStackNavigator();
@@ -14,6 +15,11 @@ export const AuthNavigator = () => {
       <Stack.Screen
         name="CreatePassword"
         component={CreatePassword}
+        options={{ headerShown: false }}
+      />
+      <Stack.Screen
+        name="UserSelect"
+        component={UserSelect}
         options={{ headerShown: false }}
       />
     </Stack.Navigator>

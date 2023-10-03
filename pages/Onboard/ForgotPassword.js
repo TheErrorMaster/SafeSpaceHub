@@ -14,7 +14,7 @@ import {
   // import {db} from '../firebase/firebaseConfig';
   // import {login} from '../firebase/user';
   
-  export const CreatePassword = ({route, navigation}) => {
+  export const ForgotPassword = ({route, navigation}) => {
     const [confirmPassword, setConfirmPassword] = useState("");
     const [password, setPassword] = useState("");
     const [loading, setLoading] = useState(false);

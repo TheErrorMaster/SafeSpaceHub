@@ -15,8 +15,9 @@ import {
   // import {login} from '../firebase/user';
   
   export const SignUp = ({route, navigation}) => {
-    const [user, setUser] = useState("");
-    const [password, setPassword] = useState("");
+    const [firstName, setFirstName] = useState("");
+    const [lastName, setLastName] = useState("");
+    const [email, setEmail] = useState("");
     const [loading, setLoading] = useState(false);
   
     const btn = async () => {
@@ -88,8 +89,8 @@ import {
                     }}
                     placeholderTextColor={"#8A8A8A"}
                     placeholder="First Name"
-                    onChangeText={setUser}
-                    value={user}
+                    onChangeText={setFirstName}
+                    value={firstName}
                   />
                   <TextInput
                     style={{
@@ -103,8 +104,8 @@ import {
                     }}
                     placeholderTextColor={"#8A8A8A"}
                     placeholder="Last Name"
-                    onChangeText={setPassword}
-                    value={password}
+                    onChangeText={setLastName}
+                    value={lastName}
                   />
                   <TextInput
                     style={{
@@ -118,8 +119,8 @@ import {
                     }}
                     placeholder="Email"
                     placeholderTextColor={"#8A8A8A"}
-                    onChangeText={setPassword}
-                    value={password}
+                    onChangeText={setEmail}
+                    value={email}
                   />
                   <Text
                     style={{
