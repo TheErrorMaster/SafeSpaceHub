@@ -1,6 +1,7 @@
 import { Text, View, TouchableOpacity } from 'react-native';
 import { ScrollView, Image } from '@gluestack-ui/themed'
-import { doctors } from '../util';
+// import { doctors } from '../util';
+import { doctors } from '../utils';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
 export const CallPage = ({ navigation }) =>  {

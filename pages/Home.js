@@ -79,14 +79,14 @@ export const HomePage = () => {
         })}
       </MapView>)}
 
-      {isLoading && (<View style={styles?.bottom}>
+      {/* {isLoading && (<View style={styles?.bottom}>
         <TouchableOpacity onPress={() => {setLogin(true)}}>
           <Text style={{ color: "green", fontSize: 50 }}>+</Text>
         </TouchableOpacity>
-      </View>)}
+      </View>)} */}
       {/* title="Oso birthday" name="OSO" age="3" summary="Oso, loves to mingle with small dogs only " image="https://www.shutterstock.com/image-photo/funny-dog-licking-lips-tongue-260nw-1761385949.jpg" breed="OSO" */}
       <Card obj={dog} pop={pop} close={() => {setPop(false)}}/>
-      <Login pop={login} close={() => {setLogin(false)}} />
+      {/* <Login pop={login} close={() => {setLogin(false)}} /> */}
       <Post coordinate={coor} pop={post} close={() => {setPost(false)}} />
 
     </SafeAreaView>

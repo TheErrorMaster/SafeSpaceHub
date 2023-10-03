@@ -1,7 +1,4 @@
-import { StyleSheet, Text, View, Button, TouchableOpacity } from 'react-native';
-import { FlatList } from '@gluestack-ui/themed';
-import { Icon, MessageCircleIcon, ChevronRightIcon } from '@gluestack-ui/themed'
-import { data } from '../util';
+import { View, TouchableOpacity } from 'react-native';
 import React from 'react';
 
 export const Accordion = ( props ) => {

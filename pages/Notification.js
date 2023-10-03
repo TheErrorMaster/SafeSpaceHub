@@ -1,11 +1,11 @@
 import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
 import { ScrollView, Image } from '@gluestack-ui/themed'
-import { doctors } from '../util';
+// import { doctors } from '../util';
 
 export const NotificationPage = ({ navigation }) =>  {
     return (
         <ScrollView style={{ flex: 1 }}>
-            <View style={{ margin: 10}}>
+            {/* <View style={{ margin: 10}}>
                 {
                 doctors?.map(x => {
                     return (
@@ -24,7 +24,7 @@ export const NotificationPage = ({ navigation }) =>  {
                     )
                 })
                 }
-            </View>
+            </View> */}
         </ScrollView>
     );
   }

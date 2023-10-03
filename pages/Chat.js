@@ -1,7 +1,7 @@
 import { StyleSheet, Text, View, Button, TouchableOpacity, KeyboardAvoidingView } from 'react-native';
 // import { FlatList, ScrollView } from '@gluestack-ui/themed';
 import { Icon, ArrowUpIcon, ChevronRightIcon, ScrollView, Image, Input, InputField } from '@gluestack-ui/themed'
-import { chats } from '../util';
+import { chats } from '../utils';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
 export const ChatPage = ({ navigation }) =>  {
