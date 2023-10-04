@@ -9,8 +9,8 @@ export default function App() {
     <SafeAreaProvider>
       <NavigationContainer>
         <GluestackUIProvider config={config.theme}>
-          {/* <AuthNavigator /> */}
-          <TabNavigator />
+          <AuthNavigator />
+          {/* <TabNavigator /> */}
         </GluestackUIProvider>
       </NavigationContainer>
     </SafeAreaProvider>

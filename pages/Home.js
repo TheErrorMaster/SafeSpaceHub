@@ -11,6 +11,7 @@ import { getLocation, dummyData } from '../utils';
 import { Card } from '../components/card';
 import { Login } from '../components/login';
 import { Post } from '../components/post';
+import { FontAwesome5 } from '@expo/vector-icons';
 
 export const HomePage = () => {
   const [long, setLong] = useState(0);
@@ -41,6 +42,7 @@ export const HomePage = () => {
       )}
       {isLoading && (<MapView
         style={styles.map}
+        mapType="standard"
         region={{
           latitude: lat,
           longitude: long,
@@ -71,9 +73,10 @@ export const HomePage = () => {
                 setDog({title: x?.title, name: x?.name, image: x?.image, breed: x?.breed, age: 1, summary: x?.title})
               }}
             >
-              <View style={styles.marker}>
+              {/* <View style={styles.marker}>
                 <Text style={styles.color}>{`${x?.breed}`}</Text>
-              </View>
+              </View> */}
+              <FontAwesome5 name="clinic-medical" size={24} color="#004aad" />
             </Marker>
           );
         })}
