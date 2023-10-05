@@ -10,11 +10,9 @@ import {
     Pressable,
   } from "react-native";
   import { useState } from "react";
-  // import { collection, getDocs, doc, query, where } from 'firebase/firestore';
-  // import {db} from '../firebase/firebaseConfig';
-  // import {login} from '../firebase/user';
+  import { authSignIn } from '../../firebase/index';
   
-  export const Login = (props) => {
+  export const Login = (props, { navigation}) => {
     const { pop, close } = props || {};
     const [user, setUser] = useState("");
     const [password, setPassword] = useState("");
@@ -23,11 +21,8 @@ import {
     const btn = async () => {
       try {
         setLoading(true);
-        // const loginUser = await login(user, password);
-        const loginUser = true;
-        // setLoading(false);
-        // loginUser ? close() : Alert.alert('wrong login infor');
-        close();
+        const loginUser = await authSignIn(user, password);
+        setLoading(false);
       } catch (e) {
         console.log("e", e);
       }

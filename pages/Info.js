@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View, Button, TouchableOpacity } from 'react-native';
+ import { StyleSheet, Text, View, Button, TouchableOpacity } from 'react-native';
 import { FlatList } from '@gluestack-ui/themed';
 import { Icon, ChevronRightIcon } from '@gluestack-ui/themed'
 import { data } from '../utils';

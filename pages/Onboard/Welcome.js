@@ -11,7 +11,7 @@ import { Text, View } from "@gluestack-ui/themed";
 // import {db} from '../firebase/firebaseConfig';
 // import {login} from '../firebase/user';
 
-export const Welcome = (props) => {
+export const Welcome = ({navigation}) => {
   return (
     <KeyboardAvoidingView
       style={{ flex: 1 }}
@@ -50,6 +50,7 @@ export const Welcome = (props) => {
               </Text>
             </Text>
             <TouchableOpacity
+              onPress={() => { navigation.navigate("Login")}}
               style={{
                 backgroundColor: "#004aad",
                 width: "90%",
