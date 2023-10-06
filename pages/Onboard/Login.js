@@ -13,7 +13,6 @@ import {
   import { authSignIn } from '../../firebase/index';
   
   export const Login = (props, { navigation}) => {
-    const { pop, close } = props || {};
     const [user, setUser] = useState("");
     const [password, setPassword] = useState("");
     const [loading, setLoading] = useState(false);
@@ -72,6 +71,7 @@ import {
                       padding: 10,
                       color: "#FFF"
                     }}
+                    placeholderTextColor={"#8A8A8A"}
                     placeholder="Email"
                     onChangeText={setUser}
                     value={user}
@@ -86,6 +86,7 @@ import {
                       padding: 10,
                       color: "#FFF"
                     }}
+                    placeholderTextColor={"#8A8A8A"}
                     placeholder="Password"
                     onChangeText={setPassword}
                     value={password}
@@ -123,7 +124,6 @@ import {
                       <Text style={{ color: "white" }}>Login</Text>
                     </TouchableOpacity>
                   )}
-                  {loading && <Text>Loading</Text>}
                 </View>
               </View>
             </View>

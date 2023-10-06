@@ -9,6 +9,8 @@ import {
     TouchableHighlight,
   } from "react-native";
 import { useState } from "react";
+import { Ionicons } from '@expo/vector-icons';
+import { Zocial } from '@expo/vector-icons';
 import { PanGestureHandler } from 'react-native-gesture-handler';
 
 export const Card = (props) => {
@@ -45,7 +47,7 @@ export const Card = (props) => {
             style={{
               width: "100%",
               height: he,
-              backgroundColor: "#ecf8db",
+              backgroundColor: "#FFF",
               borderRadius: 20,
             }}
           >
@@ -77,17 +79,14 @@ export const Card = (props) => {
                 width: '100%',
                 padding: 10,
             }}>
-                <Text style={{ fontWeight: 'bold', fontSize: 20}}>Name: </Text>
+                <Text style={{ fontWeight: 'bold', fontSize: 20}}>Address: </Text>
                 <Text style={{ fontSize: 14, }}>{name}</Text>
+                <Zocial name="email" size={24} color="black" />
+                <Ionicons name="call" size={24} color="black" />
+                <Text style={{ fontWeight: 'bold', fontSize: 20}}>Availablity: </Text>
+                
 
-                <Text style={{ fontWeight: 'bold', fontSize: 20, paddingTop: 10}}>Age: </Text>
-                <Text style={{ fontSize: 14, }}>{age}</Text>
-
-                <Text style={{ fontWeight: 'bold', fontSize: 20, paddingTop: 10}}>Breed: </Text>
-                <Text style={{ fontSize: 14, }}>{breed}</Text>
-
-                <Text style={{ fontSize: 14, fontWeight: '200', color: 'blue', paddingTop: 10, paddingBottom: 20 }}>{summary}</Text>
-                <Image style={{ width: '100%', height: 200}} source={{uri: image}} />
+                <TouchableOpacity><Text>Book a Appointment</Text></TouchableOpacity>
             </ScrollView>
           </View>
         </View>

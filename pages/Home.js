@@ -73,9 +73,6 @@ export const HomePage = () => {
                 setDog({title: x?.title, name: x?.name, image: x?.image, breed: x?.breed, age: 1, summary: x?.title})
               }}
             >
-              {/* <View style={styles.marker}>
-                <Text style={styles.color}>{`${x?.breed}`}</Text>
-              </View> */}
               <FontAwesome5 name="clinic-medical" size={24} color="#004aad" />
             </Marker>
           );
