@@ -7,13 +7,14 @@ import { Icon, MessageCircleIcon, PhoneIcon, BellIcon, InfoIcon, StarIcon, Keybo
 import { InfoPage } from '../pages/Info';
 import { ChatStack } from './ChatStack';
 import { NotificationPage } from '../pages/Notification';
+import { MapStack } from './MapStack';
 
 export const TabNavigator = () => {
     const Tab = createBottomTabNavigator();
     return (
       <KeyboardAvoidingView behavior='padding' style={{ flex: 1}}>
         <Tab.Navigator options={{ headerShown: false }}>
-          <Tab.Screen name="Home" component={HomePage} options={{ 
+          <Tab.Screen name="Home" component={MapStack} options={{ 
             headerShown: false,
             tabBarIcon: (tab) => (<Icon as={StarIcon} h="$5" w="$5" color={tab?.color} />)
           }} />

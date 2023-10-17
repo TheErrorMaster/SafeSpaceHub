@@ -13,7 +13,7 @@ import { Login } from '../components/login';
 import { Post } from '../components/post';
 import { FontAwesome5 } from '@expo/vector-icons';
 
-export const HomePage = () => {
+export const HomePage = ({route, navigation}) => {
   const [long, setLong] = useState(0);
   const [lat, setLat] = useState(0);
   const [pop, setPop] = useState(false);
@@ -68,10 +68,11 @@ export const HomePage = () => {
             <Marker
               coordinate={{ latitude: x?.latitude, longitude: x?.longitude }}
               key={i}
-              onPress={() => {
-                setPop(true);
-                setDog({title: x?.title, name: x?.name, image: x?.image, breed: x?.breed, age: 1, summary: x?.title})
-              }}
+              onPress={() => navigation.navigate("MapSelection")}
+              // onPress={() => {
+              //   setPop(true);
+              //   setDog({title: x?.title, name: x?.name, image: x?.image, breed: x?.breed, age: 1, summary: x?.title})
+              // }}
             >
               <FontAwesome5 name="clinic-medical" size={24} color="#004aad" />
             </Marker>
@@ -85,7 +86,7 @@ export const HomePage = () => {
         </TouchableOpacity>
       </View>)} */}
       {/* title="Oso birthday" name="OSO" age="3" summary="Oso, loves to mingle with small dogs only " image="https://www.shutterstock.com/image-photo/funny-dog-licking-lips-tongue-260nw-1761385949.jpg" breed="OSO" */}
-      <Card obj={dog} pop={pop} close={() => {setPop(false)}}/>
+      {/* <Card obj={dog} pop={pop} close={() => {setPop(false)}}/> */}
       {/* <Login pop={login} close={() => {setLogin(false)}} /> */}
       <Post coordinate={coor} pop={post} close={() => {setPost(false)}} />
 

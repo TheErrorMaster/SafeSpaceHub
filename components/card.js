@@ -51,7 +51,6 @@ export const Card = (props) => {
               borderRadius: 20,
             }}
           >
-            {/* <PanGestureHandler onGestureEvent={handleGesture}> */}
               <View style={{ flexDirection: 'column', height: 50, width: '100%'}}>
                 <View style={{ width: '100%', alignItems: 'center'}}>
                   <View style={{ width: 100, height: 5, backgroundColor: 'gray', borderRadius: 10, margin: 5}}></View>
@@ -67,7 +66,6 @@ export const Card = (props) => {
                   </TouchableOpacity>
               </View>
               </View>
-            {/* </PanGestureHandler> */}
 
             <View style={{ 
                 alignSelf: 'center',
@@ -82,11 +80,13 @@ export const Card = (props) => {
                 <Text style={{ fontWeight: 'bold', fontSize: 20}}>Address: </Text>
                 <Text style={{ fontSize: 14, }}>{name}</Text>
                 <Zocial name="email" size={24} color="black" />
+                <Text style={{ fontSize: 14, }}>{name}@test.com</Text>
                 <Ionicons name="call" size={24} color="black" />
+                <Text style={{ fontSize: 14, }}>310-222-2222</Text>
                 <Text style={{ fontWeight: 'bold', fontSize: 20}}>Availablity: </Text>
                 
 
-                <TouchableOpacity><Text>Book a Appointment</Text></TouchableOpacity>
+                <TouchableOpacity style={{backgroundColor: 'blue', padding: 20, borderRadius: 20}}><Text style={{color: "#FFF", textAlign: "center"}}>Book a Appointment</Text></TouchableOpacity>
             </ScrollView>
           </View>
         </View>
