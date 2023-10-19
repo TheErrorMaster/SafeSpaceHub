@@ -1,19 +1,33 @@
-import { View, TouchableOpacity } from 'react-native';
+import { Text, View, TouchableOpacity } from 'react-native';
+import { Icon, ChevronUpIcon, ChevronDownIcon } from '@gluestack-ui/themed'
 import React from 'react';
 
-export const Accordion = ( props ) => {
+export const Accordion = (props) => {
     const [toggle, setToggle] = React.useState(false);
-    const {children} = props || {};
-  return (
-    <View style={{ flex: 1 }}>
-        <TouchableOpacity onPress={() => {setToggle(!toggle)}}>
-            {children[0]}
-        </TouchableOpacity>
-        <View>
-            {toggle && (
-                children[1]
+    const { name, title, response } = props || {};
+    return (
+        <View style={{ flex: 1 }}>
+            <TouchableOpacity onPress={() => { setToggle(!toggle) }}>
+                <View style={{ flexDirection: 'row', height: 50, alignItems: 'center', justifyContent: 'space-between', margin: 10 }}>
+                    <Text style={{ fontSize: 25 }}>{name}</Text>
+                    <Icon as={toggle ? ChevronUpIcon : ChevronDownIcon} h="$8" w="$7" color="black" />
+                </View>
+            </TouchableOpacity>
+            {(toggle) && (
+                <View style={{ backgroundColor: 'lightblue', paddingLeft: 15 }}>
+                    {title?.map((x, i) => {
+                        return (
+                            <View>
+                                <Text style={{ fontSize: 20 }}>{x}</Text>
+                                <Text style={{ margin: 5 }}>{response[i]}</Text>
+                            </View>
+                        )
+                    })}
+                </View>
             )}
         </View>
-    </View>
-  );
-  }
+    );
+}
+
+
+
