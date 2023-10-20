@@ -7,7 +7,7 @@ import {
 } from "react-native";
 import MapView, { Marker } from "react-native-maps";
 import React, { useState, useEffect } from "react";
-import { getLocation, dummyData } from '../utils';
+import { getLocation, address } from '../utils';
 import { Card } from '../components/card';
 import { Login } from '../components/login';
 import { Post } from '../components/post';
@@ -63,12 +63,12 @@ export const HomePage = ({route, navigation}) => {
           setCoor(a?.nativeEvent?.coordinate)
         }}
       >
-        {dummyData?.map((x, i) => {
+        {address?.map((x, i) => {
           return (
             <Marker
               coordinate={{ latitude: x?.latitude, longitude: x?.longitude }}
               key={i}
-              onPress={() => navigation.navigate("MapSelection")}
+              onPress={() => navigation.navigate("MapSelection" ,x)}
               // onPress={() => {
               //   setPop(true);
               //   setDog({title: x?.title, name: x?.name, image: x?.image, breed: x?.breed, age: 1, summary: x?.title})

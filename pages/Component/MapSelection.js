@@ -14,8 +14,9 @@ import { Zocial } from "@expo/vector-icons";
 import { Entypo } from "@expo/vector-icons";
 const dayjs = require("dayjs");
 
-export const MapSelection = (props) => {
-  const { obj, pop, close } = props || {};
+export const MapSelection = ({ route }) => {
+  console.log("props", route);
+
   const windowHeight = Dimensions.get("screen").height;
   const [he, setHe] = useState(windowHeight / 1);
   const [currentDay, setCurrentDay] = useState(null);
@@ -89,13 +90,16 @@ export const MapSelection = (props) => {
               padding: 10,
             }}
           >
+            <Text style={{ fontSize: 14, marginBottom: 8, fontWeight: "500" }}>
+              {route.params.title}
+            </Text>
             <View
               style={{ flexDirection: "row", justifyContent: "flex-start" }}
             >
               <View style={{ flexDirection: "column" }}>
                 <Entypo name="home" size={24} color="black" />
-                <Zocial name="email" size={24} color="black" />
-                <Ionicons name="call" size={24} color="black" />
+                {/* <Zocial name="email" size={24} color="black" />
+                <Ionicons name="call" size={24} color="black" /> */}
               </View>
               <View
                 style={{
@@ -105,16 +109,16 @@ export const MapSelection = (props) => {
                 }}
               >
                 <Text style={{ fontSize: 14, marginBottom: 8 }}>
-                  123 Main St, Irvine Ca 92606
+                  {route.params.address}
                 </Text>
-                <Text style={{ fontSize: 14, marginBottom: 10 }}>
+                {/* <Text style={{ fontSize: 14, marginBottom: 10 }}>
                   test@test.com
                 </Text>
-                <Text style={{ fontSize: 14 }}>310-222-2222</Text>
+                <Text style={{ fontSize: 14 }}>310-222-2222</Text> */}
               </View>
             </View>
-            <Text style={{ fontWeight: "bold", fontSize: 20 }}>
-              Availablity:{" "}
+            <Text style={{ fontWeight: "bold", fontSize: 20, marginBottom: 20 }}>
+              Scheduled Availability:{" "}
             </Text>
             <View>
               <ScrollView
@@ -125,7 +129,7 @@ export const MapSelection = (props) => {
                 {nextWeek.map((date, index) => (
                   <TouchableOpacity
                     style={{
-                      backgroundColor: "blue",
+                      backgroundColor: "#004aad",
                       marginHorizontal: 10,
                       padding: 10,
                       borderRadius: 10,
@@ -147,12 +151,12 @@ export const MapSelection = (props) => {
                   margin: 5,
                   borderRadius: 10,
                   backgroundColor:
-                    selectedTimeSlot === timeSlot ? "blue" : "white",
+                    selectedTimeSlot === timeSlot ? "#004aad" : "white",
                 }}
               >
                 <Text
                   style={{
-                    color: selectedTimeSlot === timeSlot ? "white" : "blue",
+                    color: selectedTimeSlot === timeSlot ? "white" : "#004aad",
                   }}
                 >
                   {timeSlot}
@@ -162,14 +166,14 @@ export const MapSelection = (props) => {
 
             <TouchableOpacity
               style={{
-                backgroundColor: "blue",
+                backgroundColor: "#004aad",
                 padding: 20,
                 borderRadius: 20,
                 marginTop: 30,
               }}
             >
               <Text style={{ color: "#FFF", textAlign: "center" }}>
-                Book a Appointment
+                Book Appointment
               </Text>
             </TouchableOpacity>
           </ScrollView>

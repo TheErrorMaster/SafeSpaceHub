@@ -1,43 +1,50 @@
 import * as Location from 'expo-location';
 
-export const dummyData = [
+export const address = [
     {
-      "title":  "Jimy bday",
-      "name": "Jimmy",
-      "breed": "Shiba Inu",
+      "title":  "UCI Health - Gottschalk Medical Plaza",
+      "address": "1 Medical Plaza Driveway, Irvine, CA 92697",
       "image": "https://www.shutterstock.com/image-photo/funny-dog-licking-lips-tongue-260nw-1761385949.jpg",
-      "dateTime": "",
       "longitude": -117.853104,
       "latitude": 33.787914,
     },
     {
-      "title": "chat bday",
-      "name": "Chato",
+      "title": "Hoag Health Center Irvine - Sand Canyon",
+      "address": "16105 Sand Canyon Ave., Irvine, CA 92618",
       "image": "https://www.shutterstock.com/image-photo/group-puppies-wooden-crate-on-260nw-2277563861.jpg",
-      "breed": "Beagle",
-      "dateTime": "",
       "longitude": -117.88008,
       "latitude": 33.74501,
     },
     {
-      "title": "oso funeral",
-      "name": "Oso",
+      "title": "Kaiser Permanente Irvine Medical Center",
+      "address": "6640 Alton Pkwy, Irvine, CA 92618",
       "image": "https://www.shutterstock.com/image-photo/adorable-puppy-jack-russell-terrier-260nw-1654708225.jpg",
-      "breed": "Dalmatian",
-      "dateTime": "",
       "longitude": -117.88374,
       "latitude": 33.72084,
     },
     {
-      "title": "rip",
-      "name": "Bubbles",
+      "title": "Hoag Health Center Irvine - Woodbridge",
+      "address": "4950 Barranca Pkwy, Irvine, CA 92604",
       "image": "https://www.shutterstock.com/image-photo/puppy-260nw-549575962.jpg",
-      "breed": "Poodle",
-      "dateTime": "",
       "longitude": -117.88432,
       "latitude": 33.74231,
+    },
+    {
+      "title": "Irvine Urgent Care",
+      "address": "4950 Barranca Pkwy #101, Irvine, CA 92604",
+      "image": "https://www.shutterstock.com/image-photo/puppy-260nw-549575962.jpg",
+      "longitude": -117.89432,
+      "latitude": 33.74231,
+    },
+    {
+      "title": "Irvine Family Health Center",
+      "address": "14351 Myford Rd #100, Irvine, CA 92606",
+      "image": "https://www.shutterstock.com/image-photo/puppy-260nw-549575962.jpg",
+      "longitude": -117.77432,
+      "latitude": 33.7420,
     }
   ]
+
 
 export const getLocation = async () => {
     try {
