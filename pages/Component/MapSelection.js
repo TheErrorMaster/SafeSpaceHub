@@ -22,6 +22,7 @@ export const MapSelection = ({ route }) => {
   const [currentDay, setCurrentDay] = useState(null);
   const [nextWeek, setNextWeek] = useState([]);
   const [selectedTimeSlot, setSelectedTimeSlot] = useState(null);
+  const [selectedDaySlot, setSelectedDaySlot] = useState(null);
 
   const availableTimeSlots = [
     "9:00 AM",
@@ -36,6 +37,10 @@ export const MapSelection = ({ route }) => {
 
   const handleTimeSlotSelection = (timeSlot) => {
     setSelectedTimeSlot(timeSlot);
+  };
+
+  const handleDaySlotSelection = (daySlot) => {
+    setSelectedDaySlot(daySlot);
   };
 
   useEffect(() => {
@@ -117,19 +122,23 @@ export const MapSelection = ({ route }) => {
                 <Text style={{ fontSize: 14 }}>310-222-2222</Text> */}
               </View>
             </View>
-            <Text style={{ fontWeight: "bold", fontSize: 20, marginBottom: 20 }}>
+            <Text
+              style={{ fontWeight: "bold", fontSize: 20, marginBottom: 20 }}
+            >
               Scheduled Availability:{" "}
             </Text>
             <View>
               <ScrollView
                 horizontal={true}
                 showsHorizontalScrollIndicator={false}
-                style={{ marginTop: 5 }}
+                style={{ marginVertical: 15 }}
               >
                 {nextWeek.map((date, index) => (
                   <TouchableOpacity
+                    onPress={() => handleDaySlotSelection(date)}
                     style={{
-                      backgroundColor: "#004aad",
+                      backgroundColor:
+                        selectedDaySlot === date ? "lightblue" : "#004aad",
                       marginHorizontal: 10,
                       padding: 10,
                       borderRadius: 10,
