@@ -12,7 +12,7 @@ import {
   import { useState } from "react";
   import { authSignIn } from '../../firebase/index';
   
-  export const Login = (props, { navigation}) => {
+  export const Login = ({ navigation}) => {
     const [user, setUser] = useState("");
     const [password, setPassword] = useState("");
     const [loading, setLoading] = useState(false);
@@ -106,6 +106,7 @@ import {
                 </View>
                 <View>
                   {!loading && (
+                    <>
                     <TouchableOpacity
                       onPress={btn}
                       style={{
@@ -123,6 +124,24 @@ import {
                     >
                       <Text style={{ color: "white" }}>Login</Text>
                     </TouchableOpacity>
+                    <TouchableOpacity
+                    onPress={() => {navigation.navigate("SignUp")}}
+                    style={{
+                      width: "90%",
+                      height: 40,
+                      justifyContent: "center",
+                      borderBottomColor: "gray",
+                      borderRadius: 20,
+                      backgroundColor: "blue",
+                      justifyContent: "center",
+                      alignItems: "center",
+                      alignSelf: "center",
+                      marginTop: 20,
+                    }}
+                  >
+                    <Text style={{ color: "white" }}>Create a account here</Text>
+                  </TouchableOpacity>
+                  </>
                   )}
                 </View>
               </View>

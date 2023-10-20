@@ -14,12 +14,12 @@ export const Accordion = (props) => {
                 </View>
             </TouchableOpacity>
             {(toggle) && (
-                <View style={{ backgroundColor: 'lightblue', paddingLeft: 15 }}>
+                <View style={{ paddingLeft: 15 }}>
                     {title?.map((x, i) => {
                         return (
                             <View>
-                                <Text style={{ fontSize: 20 }}>{x}</Text>
-                                <Text style={{ margin: 5 }}>{response[i]}</Text>
+                                <Text style={{ fontSize: 20, fontWeight: '500' }}>{x}</Text>
+                                <Text style={{ margin: 5, fontSize: 14, fontWeight: '500' }}>{`\u2022 ${response[i]}`}</Text>
                             </View>
                         )
                     })}
