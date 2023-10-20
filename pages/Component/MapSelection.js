@@ -95,7 +95,7 @@ export const MapSelection = ({ route }) => {
               padding: 10,
             }}
           >
-            <Text style={{ fontSize: 14, marginBottom: 8, fontWeight: "500" }}>
+            <Text style={{ fontSize: 18, marginBottom: 8, fontWeight: "700" }}>
               {route.params.title}
             </Text>
             <View
@@ -123,9 +123,9 @@ export const MapSelection = ({ route }) => {
               </View>
             </View>
             <Text
-              style={{ fontWeight: "bold", fontSize: 20, marginBottom: 20 }}
+              style={{ fontWeight: "500", fontSize: 20, marginVertical: 20 }}
             >
-              Scheduled Availability:{" "}
+              Choose Day and Time Available{" "}
             </Text>
             <View>
               <ScrollView
