@@ -142,9 +142,11 @@ export const MapSelection = ({ route }) => {
                       marginHorizontal: 10,
                       padding: 10,
                       borderRadius: 10,
+                      borderColor: "#004aad",
+                      borderWidth: 1
                     }}
                   >
-                    <Text key={index} style={{ color: "#FFF" }}>
+                    <Text key={index} style={{ color: selectedDaySlot === date ? "#004aad": "#FFF" }}>
                       {date.toDateString()}
                     </Text>
                   </TouchableOpacity>
