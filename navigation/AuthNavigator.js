@@ -32,10 +32,10 @@ export const AuthNavigator = () => {
       />
       <Stack.Screen
         name="UserSelect"
-        component={UserSelect} 
+        component={UserSelect}
         options={{ headerShown: false }}
       />
-       <Stack.Screen
+      <Stack.Screen
         name="ForgotPassword"
         component={ForgotPassword}
         options={{ headerShown: false }}

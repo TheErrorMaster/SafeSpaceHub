@@ -8,7 +8,6 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 export const InfoPage = ({ navigation }) => {
   return (
     <SafeAreaView style={{ flex: 1 }}>
-      <Text style={{ fontSize: 30, paddingLeft: 10 }}>Info</Text>
       <View style={{ margin: 0 }}>
         <FlatList
           data={data}
