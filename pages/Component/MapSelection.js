@@ -15,7 +15,6 @@ import { Entypo } from "@expo/vector-icons";
 const dayjs = require("dayjs");
 
 export const MapSelection = ({ route }) => {
-  console.log("props", route);
 
   const windowHeight = Dimensions.get("screen").height;
   const [he, setHe] = useState(windowHeight / 1);
