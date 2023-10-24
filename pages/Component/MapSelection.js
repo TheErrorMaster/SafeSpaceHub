@@ -8,6 +8,7 @@ import {
   Dimensions,
   TouchableHighlight,
 } from "react-native";
+import { HStack } from "@gluestack-ui/themed";
 import { useState, useEffect } from "react";
 import { Ionicons } from "@expo/vector-icons";
 import { Zocial } from "@expo/vector-icons";
@@ -15,7 +16,6 @@ import { Entypo } from "@expo/vector-icons";
 const dayjs = require("dayjs");
 
 export const MapSelection = ({ route }) => {
-
   const windowHeight = Dimensions.get("screen").height;
   const [he, setHe] = useState(windowHeight / 1);
   const [currentDay, setCurrentDay] = useState(null);
@@ -41,6 +41,14 @@ export const MapSelection = ({ route }) => {
   const handleDaySlotSelection = (daySlot) => {
     setSelectedDaySlot(daySlot);
   };
+
+  const handleAppointment = async () => {
+    try{
+
+    }catch(error){
+      console.log(error)
+    }
+  }
 
   useEffect(() => {
     // Get the current date
@@ -70,7 +78,7 @@ export const MapSelection = ({ route }) => {
           style={{
             width: "100%",
             height: he,
-            backgroundColor: "#FFF",
+            backgroundColor: "#f9f9f9",
             borderRadius: 20,
           }}
         >
@@ -142,44 +150,55 @@ export const MapSelection = ({ route }) => {
                       padding: 10,
                       borderRadius: 10,
                       borderColor: "#004aad",
-                      borderWidth: 1
+                      borderWidth: 1,
                     }}
                   >
-                    <Text key={index} style={{ color: selectedDaySlot === date ? "#004aad" : "#FFF" }}>
+                    <Text
+                      key={index}
+                      style={{
+                        color: selectedDaySlot === date ? "#004aad" : "#FFF",
+                      }}
+                    >
                       {date.toDateString()}
                     </Text>
                   </TouchableOpacity>
                 ))}
               </ScrollView>
             </View>
-            {availableTimeSlots.map((timeSlot, index) => (
-              <TouchableOpacity
-                key={index}
-                onPress={() => handleTimeSlotSelection(timeSlot)}
-                style={{
-                  padding: 10,
-                  margin: 5,
-                  borderRadius: 10,
-                  backgroundColor:
-                    selectedTimeSlot === timeSlot ? "#004aad" : "white",
-                }}
-              >
-                <Text
+            <HStack style={{ flexWrap: "wrap", justifyContent: "space-between", alignItems: "center" }}>
+              {availableTimeSlots.map((timeSlot, index) => (
+                <TouchableOpacity
+                  key={index}
+                  onPress={() => handleTimeSlotSelection(timeSlot)}
                   style={{
-                    color: selectedTimeSlot === timeSlot ? "white" : "#004aad",
+                    padding: 10,
+                    margin: 5,
+                    borderRadius: 10,
+                    borderWidth: 1,
+                    borderColor: 'lightgrey',
+                    backgroundColor:
+                      selectedTimeSlot === timeSlot ? "#004aad" : "white",
                   }}
                 >
-                  {timeSlot}
-                </Text>
-              </TouchableOpacity>
-            ))}
-
+                  <Text
+                    style={{
+                      color:
+                        selectedTimeSlot === timeSlot ? "white" : "#004aad",
+                    }}
+                  >
+                    {timeSlot}
+                  </Text>
+                </TouchableOpacity>
+              ))}
+            </HStack>
             <TouchableOpacity
+            onPress={handleAppointment}
+            disabled={!selectedTimeSlot || !selectedDaySlot}
               style={{
                 backgroundColor: "#004aad",
                 padding: 20,
                 borderRadius: 20,
-                marginTop: 30,
+                marginTop: 390,
               }}
             >
               <Text style={{ color: "#FFF", textAlign: "center" }}>

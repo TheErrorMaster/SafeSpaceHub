@@ -7,15 +7,14 @@ import { getAuth } from "firebase/auth";
 
 
 const firebaseConfig = {
-apiKey: "AIzaSyAGii8dy1wOvEM1luMtrNzl1ZWvVrkqH3E",
-authDomain: "testfire-aa570.firebaseapp.com",
-databaseURL: "https://testfire-aa570-default-rtdb.firebaseio.com",
-projectId: "testfire-aa570",
-storageBucket: "testfire-aa570.appspot.com",
-messagingSenderId: "661109792173",
-appId: "1:661109792173:web:805d1855226aa637349524",
-measurementId: "G-QSQECBK83T"
-};
+    apiKey: "AIzaSyDG63DZv9MUMtoxnOW0YSkVuT9MQN2-Sc8",
+    authDomain: "safespacehub-830f4.firebaseapp.com",
+    projectId: "safespacehub-830f4",
+    storageBucket: "safespacehub-830f4.appspot.com",
+    messagingSenderId: "712671812709",
+    appId: "1:712671812709:web:31dea1865fb3318e107a8c",
+    measurementId: "G-0ELNK6K8LK"
+  };
 
 
 // Initialize Firebase
