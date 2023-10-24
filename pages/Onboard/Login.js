@@ -115,7 +115,7 @@ import {
                         justifyContent: "center",
                         borderBottomColor: "gray",
                         borderRadius: 20,
-                        backgroundColor: "blue",
+                        backgroundColor: "#004aad",
                         justifyContent: "center",
                         alignItems: "center",
                         alignSelf: "center",
@@ -128,18 +128,16 @@ import {
                     onPress={() => {navigation.navigate("SignUp")}}
                     style={{
                       width: "90%",
-                      height: 40,
                       justifyContent: "center",
                       borderBottomColor: "gray",
-                      borderRadius: 20,
-                      backgroundColor: "blue",
+                    
                       justifyContent: "center",
                       alignItems: "center",
                       alignSelf: "center",
                       marginTop: 20,
                     }}
                   >
-                    <Text style={{ color: "white" }}>Create a account here</Text>
+                    <Text style={{ color: "white" }}>Already have an account? <Text style={{ color: "#004aad" }}>Sign Up</Text></Text>
                   </TouchableOpacity>
                   </>
                   )}

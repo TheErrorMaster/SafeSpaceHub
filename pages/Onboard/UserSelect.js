@@ -10,11 +10,9 @@ import {
   Pressable,
 } from "react-native";
 import { useState } from "react";
-// import { collection, getDocs, doc, query, where } from 'firebase/firestore';
-// import {db} from '../firebase/firebaseConfig';
-// import {login} from '../firebase/user';
+import { Ionicons } from "@expo/vector-icons";
 
-export const UserSelect = (props) => {
+export const UserSelect = ({navigation}) => {
   const [select, setSelect] = useState("");
   const [loading, setLoading] = useState(false);
 
@@ -53,6 +51,14 @@ export const UserSelect = (props) => {
                 alignItems: "center",
               }}
             >
+              <View style={{ width: "100%", marginBottom: 20 }}>
+                <TouchableOpacity
+                  style={{ paddingLeft: 15 }}
+                  onPress={() => navigation.pop()}
+                >
+                  <Ionicons name="arrow-back" size={30} color="#FFF" />
+                </TouchableOpacity>
+              </View>
               <Text
                 style={{
                   color: "#FFF",
@@ -75,16 +81,17 @@ export const UserSelect = (props) => {
               >
                 Choose a role to get started!
               </Text>
-              <View style={{marginTop: 30, width: "100%", alignItems:"center"}}>
+              <View
+                style={{ marginTop: 30, width: "100%", alignItems: "center" }}
+              >
                 <TouchableOpacity
                   style={{
-
                     backgroundColor: "blue",
                     width: "90%",
                     height: 90,
                     justifyContent: "center",
                     alignItems: "center",
-                    borderRadius: 10
+                    borderRadius: 10,
                   }}
                 >
                   <Text style={{ color: "#FFF", fontWeight: "500" }}>
@@ -99,7 +106,7 @@ export const UserSelect = (props) => {
                     justifyContent: "center",
                     alignItems: "center",
                     marginTop: 20,
-                    borderRadius: 10
+                    borderRadius: 10,
                   }}
                 >
                   <Text style={{ color: "#FFF", fontWeight: "500" }}>

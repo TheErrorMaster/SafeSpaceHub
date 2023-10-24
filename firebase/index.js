@@ -23,6 +23,7 @@ export const authSignUp = async (email, password) => {
             email,
             password
         );
+        console.log("DATA", userData)
         return userData?.user ? true : false;
     } catch (e) {
         console.log("e", e);

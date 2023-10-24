@@ -11,6 +11,7 @@ import { Text, View } from "@gluestack-ui/themed";
 // import {db} from '../firebase/firebaseConfig';
 // import {login} from '../firebase/user';
 
+
 export const Welcome = ({navigation}) => {
   return (
     <KeyboardAvoidingView
@@ -18,6 +19,7 @@ export const Welcome = ({navigation}) => {
       behavior={Platform.OS === "ios" ? "padding" : "height"}
     >
       <Pressable onPress={Keyboard.dismiss}>
+
         <View
           style={{
             height: "100%",
