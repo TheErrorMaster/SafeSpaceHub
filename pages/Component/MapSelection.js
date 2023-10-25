@@ -8,7 +8,7 @@ import {
   Dimensions,
   TouchableHighlight,
 } from "react-native";
-import { HStack } from "@gluestack-ui/themed";
+import { HStack, VStack } from "@gluestack-ui/themed";
 import { useState, useEffect } from "react";
 import { Ionicons } from "@expo/vector-icons";
 import { Zocial } from "@expo/vector-icons";
@@ -43,12 +43,11 @@ export const MapSelection = ({ route }) => {
   };
 
   const handleAppointment = async () => {
-    try{
-
-    }catch(error){
-      console.log(error)
+    try {
+    } catch (error) {
+      console.log(error);
     }
-  }
+  };
 
   useEffect(() => {
     // Get the current date
@@ -165,7 +164,13 @@ export const MapSelection = ({ route }) => {
                 ))}
               </ScrollView>
             </View>
-            <HStack style={{ flexWrap: "wrap", justifyContent: "space-between", alignItems: "center" }}>
+            <HStack
+              style={{
+                flexWrap: "wrap",
+                justifyContent: "space-between",
+                alignItems: "center",
+              }}
+            >
               {availableTimeSlots.map((timeSlot, index) => (
                 <TouchableOpacity
                   key={index}
@@ -175,7 +180,7 @@ export const MapSelection = ({ route }) => {
                     margin: 5,
                     borderRadius: 10,
                     borderWidth: 1,
-                    borderColor: 'lightgrey',
+                    borderColor: "lightgrey",
                     backgroundColor:
                       selectedTimeSlot === timeSlot ? "#004aad" : "white",
                   }}
@@ -190,15 +195,41 @@ export const MapSelection = ({ route }) => {
                   </Text>
                 </TouchableOpacity>
               ))}
+              {/* <VStack >
+              <TouchableOpacity style={{backgroundColor: "#000", padding: 10, borderRadius: 10, marginTop: 5}}>
+                <Text
+                  style={{
+                    color: "#FFFFFF",
+                    fontWeight: "500",
+                    fontSize: 15,
+                    textAlign: "center"
+                  }}
+                >
+                  Will my insurance work?
+                </Text>
+              </TouchableOpacity>
+              <TouchableOpacity style={{backgroundColor: "#000", padding: 10, borderRadius: 10, marginTop: 5}}>
+                <Text
+                  style={{
+                    color: "#FFFFFF",
+                    fontWeight: "500",
+                    fontSize: 15,
+                    textAlign: "center"
+                  }}
+                >
+                  Not insured
+                </Text>
+              </TouchableOpacity>
+              </VStack> */}
             </HStack>
             <TouchableOpacity
-            onPress={handleAppointment}
-            disabled={!selectedTimeSlot || !selectedDaySlot}
+              onPress={handleAppointment}
+              disabled={!selectedTimeSlot || !selectedDaySlot}
               style={{
                 backgroundColor: "#004aad",
                 padding: 20,
                 borderRadius: 20,
-                marginTop: 390,
+                marginTop: 330,
               }}
             >
               <Text style={{ color: "#FFF", textAlign: "center" }}>
