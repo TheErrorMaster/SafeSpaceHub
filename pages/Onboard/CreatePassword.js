@@ -18,12 +18,12 @@ export const CreatePassword = ({ route, navigation }) => {
   const [confirmPassword, setConfirmPassword] = useState("");
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
+  const fullName = `${route?.params?.firstName} ${route?.params?.lastName}`;
 
   const btn = async () => {
     try {
       setLoading(true);
-      const res = await authSignUp(route?.params?.email, password);
-      console.log("RES", res);
+      const res = await authSignUp(route?.params?.email, password, fullName);
       setLoading(false);
       if (res) {
         setLoading(false);

@@ -1,6 +1,5 @@
 import { Text, View, TouchableOpacity } from 'react-native';
 import { ScrollView, Image } from '@gluestack-ui/themed'
-// import { doctors } from '../util';
 import { doctors } from '../utils';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
@@ -11,9 +10,9 @@ export const CallPage = ({ navigation }) => {
       <ScrollView>
         <View style={{ margin: 10 }}>
           {
-            doctors?.map(x => {
+            doctors?.map((x,i) => {
               return (
-                <View style={{ flex: 1, borderRadius: 5, padding: 10, marginTop: 10, backgroundColor: 'white', shadowColor: '#171717', shadowOffset: { width: -2, height: 4 }, shadowOpacity: 0.2 }}>
+                <View key={i} style={{ flex: 1, borderRadius: 5, padding: 10, marginTop: 10, backgroundColor: 'white', shadowColor: '#171717', shadowOffset: { width: -2, height: 4 }, shadowOpacity: 0.2 }}>
                   <TouchableOpacity onPress={() => { navigation.navigate('selection', { title: 'Maurico', address: "123 street" }) }}>
                     <View style={{ flexDirection: 'row', height: 50, alignItems: 'center' }}>
                       <Image source={{ uri: x?.image }} size="xs" style={{ borderRadius: 50 }} alt={"image goes here"} />

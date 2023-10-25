@@ -17,7 +17,7 @@ export const Accordion = (props) => {
                 <View style={{ paddingLeft: 15 }}>
                     {title?.map((x, i) => {
                         return (
-                            <View>
+                            <View key={i}>
                                 <Text style={{ fontSize: 20, fontWeight: '500' }}>{x}</Text>
                                 <Text style={{ margin: 5, fontSize: 14, fontWeight: '500' }}>{`\u2022 ${response[i]}`}</Text>
                             </View>

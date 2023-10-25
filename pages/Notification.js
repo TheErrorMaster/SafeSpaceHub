@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
+import { Text, View, TouchableOpacity } from 'react-native';
 import { ScrollView, Image } from '@gluestack-ui/themed'
 import { appointments } from '../utils';
 import { SafeAreaView } from 'react-native-safe-area-context';
@@ -9,10 +9,9 @@ export const NotificationPage = ({ navigation }) => {
             <Text style={{ fontSize: 30, paddingLeft: 10, textAlign: 'center' }}>Appointments</Text>
             <ScrollView style={{ margin: 10 }} refreshControl={() => console.log("hello")}>
                 {
-                    appointments?.map(x => {
-                        console.log('x', x?.state)
+                    appointments?.map((x,i) => {
                         return (
-                            <View style={{ flex: 1, borderRadius: 5, padding: 10, marginTop: 10, backgroundColor: 'white', shadowColor: '#171717', shadowOffset: { width: -2, height: 4 }, shadowOpacity: 0.2 }}>
+                            <View key={i} style={{ flex: 1, borderRadius: 5, padding: 10, marginTop: 10, backgroundColor: 'white', shadowColor: '#171717', shadowOffset: { width: -2, height: 4 }, shadowOpacity: 0.2 }}>
                                 <TouchableOpacity onPress={() => { console.log("hello") }}>
                                     <View style={{ flexDirection: 'row', height: 50, alignItems: 'center' }}>
                                         <Image source={{ uri: x?.image }} size="xs" style={{ borderRadius: 50 }} alt={"image goes here"} />
