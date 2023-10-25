@@ -1,8 +1,9 @@
-import { Text, View, TouchableOpacity, FlatList } from "react-native";
+import { Text, View, TouchableOpacity } from "react-native";
 import { ScrollView, Image } from "@gluestack-ui/themed";
 // import { doctors } from '../util';
 import { doctors } from "../utils";
 import { SafeAreaView } from "react-native-safe-area-context";
+import { Entypo } from "@expo/vector-icons";
 
 export const CallPage = ({ navigation }) => {
   return (
@@ -10,56 +11,59 @@ export const CallPage = ({ navigation }) => {
       <Text style={{ fontSize: 30, paddingLeft: 10, textAlign: "center" }}>
         Virtual Only Doctors
       </Text>
-      <FlatList
-        data={doctors}
-        contentContainerStyle={{ flex: 1, padding: 10 }}
-        renderItem={({ item }) => (
-          <View
-            style={{
-              flex: 1,
-              borderRadius: 5,
-              padding: 10,
-              marginTop: 10,
-              backgroundColor: "white",
-              shadowColor: "#171717",
-              shadowOffset: { width: -2, height: 4 },
-              shadowOpacity: 0.2,
-            }}
-          >
-            <TouchableOpacity
-              onPress={() => {
-                navigation.navigate("selection", {
-                  title: "Maurico",
-                  address: "123 street",
-                });
-              }}
-            >
+      <ScrollView>
+        <View style={{ margin: 10 }}>
+          {doctors?.map((x) => {
+            return (
               <View
                 style={{
-                  flexDirection: "row",
-                  height: 50,
-                  alignItems: "center",
+                  flex: 1,
+                  borderRadius: 5,
+                  padding: 10,
+                  marginTop: 10,
+                  backgroundColor: "white",
+                  shadowColor: "#171717",
+                  shadowOffset: { width: -2, height: 4 },
+                  shadowOpacity: 0.2,
                 }}
               >
-                <Image
-                  source={{ uri: item?.image }}
-                  size="xs"
-                  style={{ borderRadius: 50 }}
-                  alt={"image goes here"}
-                />
-                <Text style={{ fontSize: 20, paddingLeft: 10 }}>
-                  {item?.name}
-                </Text>
+                <TouchableOpacity
+                  onPress={() => {
+                    navigation.navigate("selection", {
+                      title: "Maurico",
+                      address: "123 street",
+                    });
+                  }}
+                >
+                  <View
+                    style={{
+                      flexDirection: "row",
+                      height: 50,
+                      alignItems: "center",
+                    }}
+                  >
+                    <Image
+                      source={{ uri: x?.image }}
+                      size="xs"
+                      style={{ borderRadius: 50 }}
+                      alt={"image goes here"}
+                    />
+                    <Text style={{ fontSize: 20, paddingLeft: 10 }}>
+                      {x?.name}
+                    </Text>
+                  </View>
+                  <View style={{ flex: 1 }}>
+                    {/* <Text style={{ fontSize: 15 }}>Location: {x?.street}, {x?.city}, {x?.state}</Text> */}
+                    <Text style={{ fontSize: 15 }}>
+                      Specialties: {x?.specialties.join(", ")}
+                    </Text>
+                  </View>
+                </TouchableOpacity>
               </View>
-              <View style={{ flex: 1 }}>
-                <Text style={{ fontSize: 15 }}>
-                  Specialties: {item?.specialties.join(", ")}
-                </Text>
-              </View>
-            </TouchableOpacity>
-          </View>
-        )}
-      />
+            );
+          })}
+        </View>
+      </ScrollView>
       <View>
         <TouchableOpacity
           onPress={() => {
@@ -75,8 +79,10 @@ export const CallPage = ({ navigation }) => {
               marginHorizontal: 10,
               marginTop: 10,
               padding: 5,
+              flexDirection: "row"
             }}
           >
+            <Entypo name="chat" size={24} color="#FFF" />
             <Text
               style={{
                 color: "black",

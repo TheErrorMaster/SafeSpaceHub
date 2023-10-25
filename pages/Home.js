@@ -97,7 +97,6 @@ export const HomePage = ({route, navigation}) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#ecf8db",
     alignItems: "center",
     justifyContent: "center",
   },
