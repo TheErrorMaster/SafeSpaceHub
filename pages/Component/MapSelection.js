@@ -131,7 +131,7 @@ export const MapSelection = ({ route }) => {
             <Text
               style={{ fontWeight: "500", fontSize: 20, marginVertical: 20 }}
             >
-              Choose Day and Time Available{" "}
+              Book a Date{" "}
             </Text>
             <View>
               <ScrollView
@@ -139,6 +139,7 @@ export const MapSelection = ({ route }) => {
                 showsHorizontalScrollIndicator={false}
                 style={{ marginVertical: 15 }}
               >
+
                 {nextWeek.map((date, index) => (
                   <TouchableOpacity
                     onPress={() => handleDaySlotSelection(date)}
@@ -164,6 +165,11 @@ export const MapSelection = ({ route }) => {
                 ))}
               </ScrollView>
             </View>
+            <Text
+              style={{ fontWeight: "500", fontSize: 20, marginVertical: 20 }}
+            >
+              Select Time{" "}
+            </Text>
             <HStack
               style={{
                 flexWrap: "wrap",
@@ -171,6 +177,7 @@ export const MapSelection = ({ route }) => {
                 alignItems: "center",
               }}
             >
+
               {availableTimeSlots.map((timeSlot, index) => (
                 <TouchableOpacity
                   key={index}
@@ -195,32 +202,21 @@ export const MapSelection = ({ route }) => {
                   </Text>
                 </TouchableOpacity>
               ))}
-              {/* <VStack >
-              <TouchableOpacity style={{backgroundColor: "#000", padding: 10, borderRadius: 10, marginTop: 5}}>
+              <VStack >
+              <TouchableOpacity style={{ padding: 10, borderRadius: 10, marginTop: 5}}>
                 <Text
                   style={{
-                    color: "#FFFFFF",
+                    color: "#000",
                     fontWeight: "500",
                     fontSize: 15,
                     textAlign: "center"
                   }}
                 >
-                  Will my insurance work?
+                  Insurance we accept
                 </Text>
               </TouchableOpacity>
-              <TouchableOpacity style={{backgroundColor: "#000", padding: 10, borderRadius: 10, marginTop: 5}}>
-                <Text
-                  style={{
-                    color: "#FFFFFF",
-                    fontWeight: "500",
-                    fontSize: 15,
-                    textAlign: "center"
-                  }}
-                >
-                  Not insured
-                </Text>
-              </TouchableOpacity>
-              </VStack> */}
+
+              </VStack>
             </HStack>
             <TouchableOpacity
               onPress={handleAppointment}
