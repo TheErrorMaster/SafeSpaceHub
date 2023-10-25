@@ -45,6 +45,38 @@ export const address = [
   }
 ]
 
+export const insurance = [
+  {
+    "name": "UnitedHealthcare"
+  },
+  {
+    "name": "Anthem Blue Cross Blue Shield"
+  },
+  {
+    "name": "Aetna"
+  },
+  {
+    "name": "Cigna"
+  },
+  {
+    "name": "Humana"
+  },
+  {
+    "name": "Kaiser Permanente"
+  },
+  {
+    "name": "Molina Healthcare"
+  },
+  {
+    "name": "Centene Corporation"
+  },
+  {
+    "name": "Independence Blue Cross"
+  },
+  {
+    "name": "Highmark"
+  }
+]
 
 export const getLocation = async () => {
   try {

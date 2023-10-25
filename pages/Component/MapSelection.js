@@ -8,11 +8,9 @@ import {
   Dimensions,
   TouchableHighlight,
 } from "react-native";
-import { HStack } from "@gluestack-ui/themed";
+import { HStack, VStack } from "@gluestack-ui/themed";
 import { useState, useEffect } from "react";
-import { Ionicons } from "@expo/vector-icons";
-import { Zocial } from "@expo/vector-icons";
-import { Entypo } from "@expo/vector-icons";
+import { insurance } from "../../utils";
 const dayjs = require("dayjs");
 
 export const MapSelection = ({ route }) => {
@@ -43,12 +41,11 @@ export const MapSelection = ({ route }) => {
   };
 
   const handleAppointment = async () => {
-    try{
-
-    }catch(error){
-      console.log(error)
+    try {
+    } catch (error) {
+      console.log(error);
     }
-  }
+  };
 
   useEffect(() => {
     // Get the current date
@@ -61,11 +58,18 @@ export const MapSelection = ({ route }) => {
     const nextWeekDates = [];
     for (let i = 0; i < 7; i++) {
       const nextDate = new Date(currentDate);
+
       nextDate.setDate(currentDate.getDate() + i);
       nextWeekDates.push(nextDate);
     }
     setNextWeek(nextWeekDates);
   }, []);
+
+  const formatDate = (date) => {
+    const month = date.toLocaleString("en-US", { month: "short" });
+    const day = date.getDate();
+    return `${month} ${day}`;
+  };
 
   return (
     <>
@@ -105,34 +109,14 @@ export const MapSelection = ({ route }) => {
             <Text style={{ fontSize: 18, marginBottom: 8, fontWeight: "700" }}>
               {route.params.title}
             </Text>
-            <View
-              style={{ flexDirection: "row", justifyContent: "flex-start" }}
-            >
-              <View style={{ flexDirection: "column" }}>
-                <Entypo name="home" size={24} color="black" />
-                {/* <Zocial name="email" size={24} color="black" />
-                <Ionicons name="call" size={24} color="black" /> */}
-              </View>
-              <View
-                style={{
-                  flexDirection: "column",
-                  marginLeft: 20,
-                  marginTop: 4,
-                }}
-              >
-                <Text style={{ fontSize: 14, marginBottom: 8 }}>
-                  {route.params.address}
-                </Text>
-                {/* <Text style={{ fontSize: 14, marginBottom: 10 }}>
-                  test@test.com
-                </Text>
-                <Text style={{ fontSize: 14 }}>310-222-2222</Text> */}
-              </View>
-            </View>
+
+            <Text style={{ fontSize: 14, marginBottom: 8, fontWeight: "500" }}>
+              {route.params.address}
+            </Text>
             <Text
               style={{ fontWeight: "500", fontSize: 20, marginVertical: 20 }}
             >
-              Choose Day and Time Available{" "}
+              Book a Date{" "}
             </Text>
             <View>
               <ScrollView
@@ -145,27 +129,42 @@ export const MapSelection = ({ route }) => {
                     onPress={() => handleDaySlotSelection(date)}
                     style={{
                       backgroundColor:
-                        selectedDaySlot === date ? "lightblue" : "#004aad",
-                      marginHorizontal: 10,
+                        selectedDaySlot === date ? "lightblue" : "#FFF",
+                      marginRight: 10,
                       padding: 10,
                       borderRadius: 10,
-                      borderColor: "#004aad",
+                      borderColor:
+                        selectedDaySlot === date ? "#004aad" : "lightgrey",
                       borderWidth: 1,
+                      height: 50,
+                      justifyContent: "center",
                     }}
                   >
                     <Text
                       key={index}
                       style={{
-                        color: selectedDaySlot === date ? "#004aad" : "#FFF",
+                        fontWeight: "500",
+                        color: selectedDaySlot === date ? "#004aad" : "grey",
                       }}
                     >
-                      {date.toDateString()}
+                      {formatDate(date)}
                     </Text>
                   </TouchableOpacity>
                 ))}
               </ScrollView>
             </View>
-            <HStack style={{ flexWrap: "wrap", justifyContent: "space-between", alignItems: "center" }}>
+            <Text
+              style={{ fontWeight: "500", fontSize: 20, marginVertical: 20 }}
+            >
+              Select Time{" "}
+            </Text>
+            <HStack
+              style={{
+                flexWrap: "wrap",
+                justifyContent: "space-between",
+                alignItems: "center",
+              }}
+            >
               {availableTimeSlots.map((timeSlot, index) => (
                 <TouchableOpacity
                   key={index}
@@ -175,30 +174,58 @@ export const MapSelection = ({ route }) => {
                     margin: 5,
                     borderRadius: 10,
                     borderWidth: 1,
-                    borderColor: 'lightgrey',
+                    borderColor:
+                      selectedTimeSlot === timeSlot ? "#004aad" : "lightgrey",
                     backgroundColor:
-                      selectedTimeSlot === timeSlot ? "#004aad" : "white",
+                      selectedTimeSlot === timeSlot ? "lightblue" : "white",
                   }}
                 >
                   <Text
                     style={{
-                      color:
-                        selectedTimeSlot === timeSlot ? "white" : "#004aad",
+                      fontWeight: "500",
+                      color: selectedTimeSlot === timeSlot ? "#004aad" : "grey",
                     }}
                   >
                     {timeSlot}
                   </Text>
                 </TouchableOpacity>
               ))}
+              <VStack>
+                <Text
+                  style={{
+                    color: "#000",
+                    fontWeight: "700",
+                    fontSize: 15,
+                    marginTop: 4
+                  }}
+                >
+                  Insurance we accept
+                </Text>
+
+                {insurance?.map((item) => {
+                  return (
+                    <Text
+                      style={{
+                        color: "#000",
+                        fontWeight: "500",
+                        fontSize: 15,
+                        marginTop: 5
+                      }}
+                    >
+                      {"\u2022"} {item.name}
+                    </Text>
+                  );
+                })}
+              </VStack>
             </HStack>
             <TouchableOpacity
-            onPress={handleAppointment}
-            disabled={!selectedTimeSlot || !selectedDaySlot}
+              onPress={handleAppointment}
+              disabled={!selectedTimeSlot || !selectedDaySlot}
               style={{
                 backgroundColor: "#004aad",
                 padding: 20,
                 borderRadius: 20,
-                marginTop: 390,
+                marginTop: 90,
               }}
             >
               <Text style={{ color: "#FFF", textAlign: "center" }}>

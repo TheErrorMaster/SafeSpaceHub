@@ -6,7 +6,9 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 export const CallPage = ({ navigation }) => {
   return (
     <SafeAreaView style={{ flex: 1 }}>
-      <Text style={{ fontSize: 30, paddingLeft: 10, textAlign: 'center' }}>Virtual Only Doctors</Text>
+      <Text style={{ fontSize: 30, paddingLeft: 10, textAlign: "center" }}>
+        Virtual Only Doctors
+      </Text>
       <ScrollView>
         <View style={{ margin: 10 }}>
           {
@@ -30,12 +32,37 @@ export const CallPage = ({ navigation }) => {
         </View>
       </ScrollView>
       <View>
-        <TouchableOpacity onPress={() => { navigation.navigate('ChatPage') }}>
-          <View style={{ backgroundColor: '#004aad', borderRadius: 20, justifyContent: 'center', alignItems: 'center', marginHorizontal: 10, marginTop: 10, padding: 5 }}>
-            <Text style={{ color: 'black', margin: 10, color: '#fff', fontWeight: '700' }}>Chat with AI</Text>
+        <TouchableOpacity
+          onPress={() => {
+            navigation.navigate("ChatPage");
+          }}
+        >
+          <View
+            style={{
+              backgroundColor: "#004aad",
+              borderRadius: 20,
+              justifyContent: "center",
+              alignItems: "center",
+              marginHorizontal: 10,
+              marginTop: 10,
+              padding: 5,
+              flexDirection: "row"
+            }}
+          >
+            <Entypo name="chat" size={24} color="#FFF" />
+            <Text
+              style={{
+                color: "black",
+                margin: 10,
+                color: "#fff",
+                fontWeight: "700",
+              }}
+            >
+              Chat with AI
+            </Text>
           </View>
         </TouchableOpacity>
       </View>
     </SafeAreaView>
   );
-}
+};
