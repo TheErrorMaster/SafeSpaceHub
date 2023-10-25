@@ -6,8 +6,8 @@ import { ChatPage } from '../pages/Chat';
 import { Icon, MessageCircleIcon, PhoneIcon, BellIcon, InfoIcon, StarIcon, KeyboardAvoidingView } from '@gluestack-ui/themed'
 import { InfoPage } from '../pages/Info';
 import { ChatStack } from './ChatStack';
-import { NotificationPage } from '../pages/Notification';
 import { MapStack } from './MapStack';
+import { AppoitmentStack } from './AppoitmentStack';
 
 export const TabNavigator = () => {
   const Tab = createBottomTabNavigator();
@@ -26,7 +26,7 @@ export const TabNavigator = () => {
           headerShown: false,
           tabBarIcon: (tab) => (<Icon as={PhoneIcon} h="$5" w="$5" color={tab?.color} />)
         }} />
-        <Tab.Screen name="Appointments" component={NotificationPage} options={{
+        <Tab.Screen name="Appointments" component={AppoitmentStack} options={{
           headerShown: false,
           tabBarIcon: (tab) => (<Icon as={BellIcon} h="$5" w="$5" color={tab?.color} />)
         }} />

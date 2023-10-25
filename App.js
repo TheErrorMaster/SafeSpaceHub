@@ -22,7 +22,7 @@ export default function App() {
     <SafeAreaProvider>
       <NavigationContainer>
         <GluestackUIProvider config={config.theme}>
-          {!auths ? (
+          {auths ? (
           <TabNavigator />
           ) : (
           <AuthNavigator />

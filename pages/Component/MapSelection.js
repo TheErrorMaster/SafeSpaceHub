@@ -12,8 +12,9 @@ import { HStack, VStack } from "@gluestack-ui/themed";
 import { useState, useEffect } from "react";
 import { insurance } from "../../utils";
 const dayjs = require("dayjs");
+import { setAppointment, authUser } from '../../firebase/index';
 
-export const MapSelection = ({ route }) => {
+export const MapSelection = ({ navigation, route }) => {
   const windowHeight = Dimensions.get("screen").height;
   const [he, setHe] = useState(windowHeight / 1);
   const [currentDay, setCurrentDay] = useState(null);
@@ -42,6 +43,12 @@ export const MapSelection = ({ route }) => {
 
   const handleAppointment = async () => {
     try {
+      const doctor = route?.params?.title || '';
+      const location = route?.params?.address || '';
+      const time = `${selectedDaySlot?.toDateString() || ''} ${selectedTimeSlot || ''}`;
+      const fullName = authUser()?.displayName || '';
+      await setAppointment(doctor, fullName, location, time);
+      navigation.goBack(); // exit modal
     } catch (error) {
       console.log(error);
     }
@@ -107,14 +114,14 @@ export const MapSelection = ({ route }) => {
             }}
           >
             <Text style={{ fontSize: 18, marginBottom: 8, fontWeight: "700" }}>
-              {route.params.title}
+              {route?.params?.title || ''}
             </Text>
 
             <Text style={{ fontSize: 14, marginBottom: 8, fontWeight: "500" }}>
-              {route.params.address}
+              {route?.params?.address || ''}
             </Text>
             <Text
-              style={{ fontWeight: "500", fontSize: 20, marginVertical: 20 }}
+              style={{ fontWeight: "500", fontSize: 20, marginVertical: 0 }}
             >
               Book a Date{" "}
             </Text>
@@ -154,7 +161,7 @@ export const MapSelection = ({ route }) => {
               </ScrollView>
             </View>
             <Text
-              style={{ fontWeight: "500", fontSize: 20, marginVertical: 20 }}
+              style={{ fontWeight: "500", fontSize: 20 }}
             >
               Select Time{" "}
             </Text>

@@ -4,7 +4,7 @@ import React, { useEffect, useState } from 'react';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
 
-export const ChatPage = ({ navigation }) => {
+export const ChatPage = () => {
   const messageColor = (obj) => { return (obj === 'assistant' ? 'white' : 'lightblue') }
   const messageDirection = (obj) => { return (obj === 'assistant' ? 'flex-start' : 'flex-end') }
   const [mess, setMess] = useState([{ role: "system", content: "you are a medical bot that is ready to answer people's questions about sti and other stuff" }])
@@ -15,7 +15,6 @@ export const ChatPage = ({ navigation }) => {
     try {
       const OPENAI_KEY = ""; // ask me for the api
       const URL = 'https://api.openai.com/v1/chat/completions';
-
 
       const response = await fetch(URL, {
         method: "POST",
@@ -60,10 +59,10 @@ export const ChatPage = ({ navigation }) => {
         onContentSizeChange={() => { () => scrollViewRef.current.scrollToEnd({ animated: true }) }}
       >
         {
-          mess?.slice(1)?.map(x => {
+          mess?.slice(1)?.map((x,i) => {
             return (
-              <View style={{ flex: 1, padding: 5, alignItems: messageDirection(x?.role), shadowColor: '#171717', shadowOffset: { width: -2, height: 4 }, shadowOpacity: 0.2 }}>
-                <View style={{ backgroundColor: messageColor(x?.role), padding: 10, borderRadius: 5 }}>
+              <View key={i} style={{ flex: 1, padding: 5, alignItems: messageDirection(x?.role) }}>
+                <View style={{ backgroundColor: messageColor(x?.role), padding: 10, borderRadius: 5, shadowColor: '#171717', shadowOffset: { width: -2, height: 4 }, shadowOpacity: 0.2 }}>
                   <Text>{x?.content}</Text>
                 </View>
               </View>

@@ -152,69 +152,7 @@ export const data = [
     "id": 8,
     "name": "Syphilis",
     "title": ["Symptoms?", "How do you get it?", "Is it curable?", "How do you prevent it?"],
-    "response": ["James is fine", "Yes, he will"]
-  },
-]
-export const chats = [
-  {
-    "user": "bot",
-    "message": "hello",
-  },
-  {
-    "user": "maui",
-    "message": "Hello world",
-  },
-  {
-    "user": "maui",
-    "message": "Hello world",
-  },
-  {
-    "user": "maui",
-    "message": "Hello world",
-  },
-  {
-    "user": "maui",
-    "message": "Hello world",
-  },
-  {
-    "user": "maui",
-    "message": "Hello world",
-  },
-  {
-    "user": "maui",
-    "message": "Hello world",
-  },
-  {
-    "user": "maui",
-    "message": "Hello world",
-  },
-  {
-    "user": "maui",
-    "message": "Hello world",
-  },
-  {
-    "user": "maui",
-    "message": "Hello world",
-  },
-  {
-    "user": "maui",
-    "message": "Hello world",
-  },
-  {
-    "user": "maui",
-    "message": "Hello world",
-  },
-  {
-    "user": "maui",
-    "message": "Hello world",
-  },
-  {
-    "user": "maui",
-    "message": "Hello world",
-  },
-  {
-    "user": "maui",
-    "message": "Hello world",
+    "response": ["-James is fine \n-dfd", "Yes, he will"]
   },
 ]
 
@@ -222,57 +160,25 @@ export const doctors = [
   {
     "id": 21,
     "name": "David R. Paskil",
-    "state": "California",
-    "street": "123 street",
-    "city": "Irvine",
     "specialties": ["Pathology", "General Practice"],
     "image": "https://assets.medpagetoday.net/media/images/73xxx/73617.jpg"
   },
   {
-    "id": 14,
-    "name": "Josh Smith",
-    "state": "Texas",
-    "street": "123 street",
-    "city": "Austin",
+    "id": 15,
+    "name": "Amy Smith",
     "specialties": ["Pathology"],
-    "image": "https://assets.medpagetoday.net/media/images/73xxx/73617.jpg",
+    "image": "https://st.depositphotos.com/2208684/2391/i/600/depositphotos_23910421-stock-photo-female-doctor-at-the-hospital.jpg",
   },
   {
-    "id": 15,
-    "name": "Jimmy Smith",
-    "state": "Texas",
-    "street": "123 street",
-    "city": "Austin",
-    "specialties": ["Pathology"],
-    "image": "https://assets.medpagetoday.net/media/images/73xxx/73617.jpg",
+    "id": 14,
+    "name": "Asad Sid",
+    "specialties": ["General Practice"],
+    "image": "https://st3.depositphotos.com/1743476/32257/i/600/depositphotos_322579018-stock-photo-smiling-doctor-standing-on-grey.jpg",
   },
   {
     "id": 24,
-    "name": "Josh Smith",
-    "state": "Texas",
-    "street": "123 street",
-    "city": "Austin",
+    "name": "Lisa Simpson",
     "specialties": ["Pathology"],
-    "image": "https://assets.medpagetoday.net/media/images/73xxx/73617.jpg",
+    "image": "https://st3.depositphotos.com/3889193/35772/i/450/depositphotos_357721126-stock-photo-confident-female-doctor-posing-her.jpg",
   },
 ] 
-
-export const appointments = [
-  {
-    "id": 21,
-    "name": "David R. Paskil",
-    "state": "California",
-    "street": "123 street",
-    "city": "Irvine",
-    "specialties": ["Pathology", "General Practice"],
-    "image": "https://assets.medpagetoday.net/media/images/73xxx/73617.jpg",
-    "appoitment": "10/20/2023 2:00PM"
-  },
-  {
-    "id": 14,
-    "name": "Josh Smith",
-    "specialties": ["Pathology"],
-    "image": "https://assets.medpagetoday.net/media/images/73xxx/73617.jpg",
-    "appoitment": "10/20/2023 2:00PM"
-  }
-]  

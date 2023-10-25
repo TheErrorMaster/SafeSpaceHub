@@ -19,7 +19,7 @@ export const Accordion = (props) => {
                         return (
                             <View key={i}>
                                 <Text style={{ fontSize: 20, fontWeight: '500' }}>{x}</Text>
-                                <Text style={{ margin: 5, fontSize: 14, fontWeight: '500' }}>{`\u2022 ${response[i]}`}</Text>
+                                <Text style={{ margin: 5, fontSize: 14, fontWeight: '500' }}>{response[i]}</Text>
                             </View>
                         )
                     })}
