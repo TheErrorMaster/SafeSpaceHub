@@ -11,8 +11,9 @@ import {
 import { HStack, VStack } from "@gluestack-ui/themed";
 import { useState, useEffect } from "react";
 import { insurance } from "../../utils";
+import { AntDesign } from "@expo/vector-icons";
 const dayjs = require("dayjs");
-import { setAppointment, authUser } from '../../firebase/index';
+import { setAppointment, authUser } from "../../firebase/index";
 
 export const MapSelection = ({ navigation, route }) => {
   const windowHeight = Dimensions.get("screen").height;
@@ -43,10 +44,12 @@ export const MapSelection = ({ navigation, route }) => {
 
   const handleAppointment = async () => {
     try {
-      const doctor = route?.params?.title || '';
-      const location = route?.params?.address || '';
-      const time = `${selectedDaySlot?.toDateString() || ''} ${selectedTimeSlot || ''}`;
-      const fullName = authUser()?.displayName || '';
+      const doctor = route?.params?.title || "";
+      const location = route?.params?.address || "";
+      const time = `${selectedDaySlot?.toDateString() || ""} ${
+        selectedTimeSlot || ""
+      }`;
+      const fullName = authUser()?.displayName || "";
       await setAppointment(doctor, fullName, location, time);
       navigation.goBack(); // exit modal
     } catch (error) {
@@ -114,14 +117,32 @@ export const MapSelection = ({ navigation, route }) => {
             }}
           >
             <Text style={{ fontSize: 18, marginBottom: 8, fontWeight: "700" }}>
-              {route?.params?.title || ''}
+              {route?.params?.title || ""}
             </Text>
 
-            <Text style={{ fontSize: 14, marginBottom: 8, fontWeight: "500" }}>
-              {route?.params?.address || ''}
+            <Text style={{ fontSize: 14, marginBottom: 18, fontWeight: "500" }}>
+              {route?.params?.address || ""}
             </Text>
+            <View
+              style={{
+                backgroundColor: "#FFF",
+                width: 80,
+                height: 30,
+                borderRadius: 100,
+                borderWidth: 1,
+                borderColor: "#D5B60A",
+                flexDirection: "row",
+                justifyContent: "center",
+                alignContent: "center",
+                alignItems: "center",
+                marginBottom: 20
+              }}
+            >
+              <Text style={{ marginRight: 4, color: "#D5B60A", fontWeight: "500" }}>4.9</Text>
+              <AntDesign name="star" size={14} color="#D5B60A" />
+            </View>
             <Text
-              style={{ fontWeight: "500", fontSize: 20, marginVertical: 0 }}
+              style={{ fontWeight: "600", fontSize: 17, marginVertical: 0 }}
             >
               Book a Date{" "}
             </Text>
@@ -160,17 +181,13 @@ export const MapSelection = ({ navigation, route }) => {
                 ))}
               </ScrollView>
             </View>
-            <Text
-              style={{ fontWeight: "500", fontSize: 20 }}
-            >
+            <Text style={{ fontWeight: "600", fontSize: 17 }}>
               Select Time{" "}
             </Text>
-            <HStack
-              style={{
-                flexWrap: "wrap",
-                justifyContent: "space-between",
-                alignItems: "center",
-              }}
+            <ScrollView
+              horizontal={true}
+              showsHorizontalScrollIndicator={false}
+              style={{ marginVertical: 15 }}
             >
               {availableTimeSlots.map((timeSlot, index) => (
                 <TouchableOpacity
@@ -178,7 +195,8 @@ export const MapSelection = ({ navigation, route }) => {
                   onPress={() => handleTimeSlotSelection(timeSlot)}
                   style={{
                     padding: 10,
-                    margin: 5,
+                    // margin: 5,
+                    marginRight: 9,
                     borderRadius: 10,
                     borderWidth: 1,
                     borderColor:
@@ -197,34 +215,35 @@ export const MapSelection = ({ navigation, route }) => {
                   </Text>
                 </TouchableOpacity>
               ))}
-              <VStack>
-                <Text
-                  style={{
-                    color: "#000",
-                    fontWeight: "700",
-                    fontSize: 15,
-                    marginTop: 4
-                  }}
-                >
-                  Insurance we accept
-                </Text>
+            </ScrollView>
 
-                {insurance?.map((item) => {
-                  return (
-                    <Text
-                      style={{
-                        color: "#000",
-                        fontWeight: "500",
-                        fontSize: 15,
-                        marginTop: 5
-                      }}
-                    >
-                      {"\u2022"} {item.name}
-                    </Text>
-                  );
-                })}
-              </VStack>
-            </HStack>
+            <VStack>
+              <Text
+                style={{
+                  color: "#000",
+                  fontWeight: "700",
+                  fontSize: 15,
+                  marginTop: 4,
+                }}
+              >
+                Insurance we accept
+              </Text>
+
+              {insurance?.map((item) => {
+                return (
+                  <Text
+                    style={{
+                      color: "#000",
+                      fontWeight: "500",
+                      fontSize: 15,
+                      marginTop: 5,
+                    }}
+                  >
+                    {"\u2022"} {item.name}
+                  </Text>
+                );
+              })}
+            </VStack>
             <TouchableOpacity
               onPress={handleAppointment}
               disabled={!selectedTimeSlot || !selectedDaySlot}

@@ -5,6 +5,7 @@ import React from 'react';
 export const Accordion = (props) => {
     const [toggle, setToggle] = React.useState(false);
     const { name, title, response } = props || {};
+    console.log("PROPS", props)
     return (
         <View style={{ flex: 1 }}>
             <TouchableOpacity onPress={() => { setToggle(!toggle) }}>
