@@ -2,9 +2,16 @@ import React, { useState } from "react";
 import { Alert, Modal, StyleSheet, Text, Pressable, View } from "react-native";
 import { MaterialIcons } from "@expo/vector-icons";
 import { Ionicons } from "@expo/vector-icons";
+import { useNavigation } from '@react-navigation/native';
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 
-const AppointmentModal = ({ modalVisible, setModalVisible }) => {
+const AppointmentModal = ({ modalVisible, setModalVisible, data }) => {
+  const navigation = useNavigation();
+
+  const HandleText = () => {
+    navigation?.navigate("Message")
+    setModalVisible(false)
+  }
   return (
     <Modal
       animationType="slide"
@@ -44,12 +51,13 @@ const AppointmentModal = ({ modalVisible, setModalVisible }) => {
           </Pressable>
           <Pressable
             style={[styles.button, styles.buttonClose]}
-            onPress={() => setModalVisible(!modalVisible)}
+            onPress={HandleText}
+            
           >
             <MaterialIcons name="sms" size={24} color="#FFF" />
             <Text style={styles.textStyle}>Text</Text>
           </Pressable>
-          <Pressable
+          {/* <Pressable
             style={[styles.button, styles.buttonClose]}
             onPress={() => setModalVisible(!modalVisible)}
           >
@@ -59,7 +67,7 @@ const AppointmentModal = ({ modalVisible, setModalVisible }) => {
               color="#FFF"
             />
             <Text style={styles.textStyle}>Facetime</Text>
-          </Pressable>
+          </Pressable> */}
         </View>
       </View>
     </Modal>

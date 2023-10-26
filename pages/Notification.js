@@ -24,7 +24,7 @@ export const NotificationPage = ({ navigation }) => {
 
     return (
         <>
-        <AppointmentModal modalVisible={modalVisible} setModalVisible={setModalVisible}/>
+        <AppointmentModal modalVisible={modalVisible} setModalVisible={setModalVisible} data={appointment}/>
         <SafeAreaView style={{ flex: 1 }}>
             <Text style={{ fontSize: 30, paddingLeft: 10, textAlign: 'center' }}>My Appointments</Text>
             {appointment?.length === 0 && <Text style={{ padding: 10, fontSize: 20}}>No available appointments</Text>}
@@ -33,8 +33,7 @@ export const NotificationPage = ({ navigation }) => {
                     appointment.map((x,i) => {
                         return (
                             <View key={i} style={{ flex: 1, borderRadius: 5, padding: 10, marginTop: 10, backgroundColor: 'white', shadowColor: '#171717', shadowOffset: { width: -2, height: 4 }, shadowOpacity: 0.2 }}>
-                                {/* <TouchableOpacity onPress={() => setModalVisible(true) }> */}
-                                <TouchableOpacity onPress={() => navigation?.navigate("Message", {doctorName: x?.doctorName, user: x?.username, appointment: x?.id})  }>
+                                <TouchableOpacity onPress={() => setModalVisible(true) }>
                                     <View style={{ flexDirection: 'row', height: 50, alignItems: 'center' }}>
                                         <Text style={{ fontSize: 20 }}>{x?.doctorName}</Text>
                                     </View>

@@ -164,8 +164,10 @@ export const MapSelection = ({ navigation, route }) => {
                       borderColor:
                         selectedDaySlot === date ? "#004aad" : "lightgrey",
                       borderWidth: 1,
-                      height: 50,
+                      height: 40,
+                      width: 78,
                       justifyContent: "center",
+                      alignItems: "center"
                     }}
                   >
                     <Text
