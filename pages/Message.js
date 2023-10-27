@@ -6,8 +6,8 @@ import { listMessage, messageDoctor, updateMessage } from '../firebase';
 
 
 export const MessagePage = ({ route }) => {
-  const messageColor = (obj) => { return (obj === 'system' ?  'white' : (obj === 'user' ? 'lightblue' : 'red')) }
-  const messageDirection = (obj) => { return (obj === 'system' ?  'center' : (obj === 'user' ? 'flex-end' : 'flex-end')) }
+  const messageColor = (obj) => { return (obj === 'system' ?  'white' : (obj === 'user' ? 'lightblue' : 'lightgreen')) }
+  const messageDirection = (obj) => { return (obj === 'system' ?  'center' : (obj === 'user' ? 'flex-end' : 'flex-start')) }
   const [mess, setMess] = useState([])
   const [input, setInput] = useState("")
   const scrollViewRef = React.useRef();
@@ -44,7 +44,7 @@ export const MessagePage = ({ route }) => {
         {
           mess?.map((x,i) => {
             return (
-              <View key={i} style={{ flex: 1, padding: 5, alignItems: messageDirection(x?.role) }}>
+              <View key={i} style={{ flex: 1, padding: 5, marginHorizontal: 20, alignItems: messageDirection(x?.role) }}>
                 <View style={{ backgroundColor: messageColor(x?.role), padding: 10, borderRadius: 5, shadowColor: '#171717', shadowOffset: { width: -2, height: 4 }, shadowOpacity: 0.2 }}>
                   <Text>{x?.content}</Text>
                 </View>
