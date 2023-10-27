@@ -7,9 +7,8 @@ import { MaterialCommunityIcons } from "@expo/vector-icons";
 
 const AppointmentModal = ({ modalVisible, setModalVisible, data }) => {
   const navigation = useNavigation();
-
   const HandleText = () => {
-    navigation?.navigate("Message")
+    navigation?.navigate("Message", {doctorName: data[0], user: data[1], appointment: data[2]})
     setModalVisible(false)
   }
   return (

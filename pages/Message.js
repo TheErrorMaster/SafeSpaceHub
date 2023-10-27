@@ -15,14 +15,13 @@ export const MessagePage = ({ route }) => {
   const username = route?.params?.user || '';
   const appointment = route?.params?.appointment || '';
 
-
   const updateMessages = (message) => {
     setMess(message)
   }
 
   useEffect(() => {
     messageDoctor(doctorName, username, appointment);
-    const message = listMessage(appointment, updateMessages)
+    const message = listMessage(appointment, updateMessages);
   }, [])
 
 

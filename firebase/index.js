@@ -70,7 +70,7 @@ export const setAppointment = async (doctor, user, loc, timeDate) => {
         }
         const ref = doc(collection(db, "appointments"));
         docData.id = ref?.id || '';
-        const sendData = await setDoc(ref,  )
+        const sendData = await setDoc(ref,  docData)
         return sendData || ""
     } catch (e) {
         console.log('e', e);
